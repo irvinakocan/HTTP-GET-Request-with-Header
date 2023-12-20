@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         // Specify HTTP Method
         urlRequest.httpMethod = "GET"
         
+        // Set HTTP Request Header
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        // We can set more than one header
+        urlRequest.setValue("Basic htu574kfj584kfnd84kdlwut92jayebgpylg8md72msgrk", forHTTPHeaderField: "Authorization")
+        
         // Send HTTP Request
         let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
