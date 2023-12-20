@@ -47,6 +47,12 @@ class ViewController: UIViewController {
             
             if let response = response as? HTTPURLResponse {
                 print("Response HTTP Status code: \(response.statusCode)")
+                
+                // Read all HTTP Response Headers
+                print("\nAll headers: \n\(response.allHeaderFields)")
+                
+                // Read a specific HTTP Response Header by name
+                print("\nSpecific header: \n\(response.value(forHTTPHeaderField: "Content-Type") ?? "header not found")")
             }
         })
         task.resume()
